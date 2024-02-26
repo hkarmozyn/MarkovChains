@@ -34,5 +34,29 @@ public class MarkovChain {
         }
 
     }
+    public String generateText(int wordCount){
+        if(startingWords.isEmpty()){
+            return " ";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        String currentWord=  startingWords.get(r.nextInt(startingWords.size()));
+        sb.append(currentWord);
+
+        for (int i= 1; i<wordCount; i++){
+            List<String> nextWords = hashMap.get(currentWord);
+            if(nextWords == null|| nextWords.isEmpty()) {
+                break;
+            }
+                currentWord = nextWords.get(r.nextInt(nextWords.size()));
+                sb.append(" ").append(currentWord);
+
+
+
+        }
+        return sb.toString();
+
+
+    }
 
 }
