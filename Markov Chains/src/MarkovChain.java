@@ -15,8 +15,8 @@ public class MarkovChain {
             String[] words = line.split("\\s+");
             for (String word : words){
                 if (word.isEmpty()) continue;
-                 if(previousWord!=null) {
-                     if (!hashMap.containsKey(previousWord)) {
+                if(previousWord!=null) {
+                        if (!hashMap.containsKey(previousWord)) {
                          hashMap.put(previousWord, new ArrayList<>());
                      }
                      hashMap.get(previousWord).add(word);
